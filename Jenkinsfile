@@ -6,8 +6,8 @@ pipeline {
             steps { 
                 echo 'mvn validate'
                 sh 'mvn validate'
-                sh 'echo ${env.GIT_COMMIT}'
-                sh 'echo ${env.GIT_BRANCH}'
+                gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+                sh 'echo ${gitCommit}'
                 
             }}
         stage('compile'){
