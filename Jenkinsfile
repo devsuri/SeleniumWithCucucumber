@@ -7,6 +7,9 @@ pipeline {
             steps { 
                 echo 'mvn validate'
                 sh 'mvn validate'
+                echo '${env.GIT_COMMIT}'
+                echo '${env.GIT_BRANCH}'
+                
             }}
         stage('compile'){
             steps {
