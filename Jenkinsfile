@@ -1,7 +1,6 @@
 pipeline {
     agent any
-    echo env.GIT_COMMIT
-    echo env.GIT_BRANCH
+    
     stages {
         stage('validate'){
             steps { 
