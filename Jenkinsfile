@@ -7,7 +7,7 @@ pipeline {
                 echo 'mvn validate'
                 sh 'mvn validate'
                 
-                echo ${gitCommit}
+              
                 
             }}
         stage('compile'){
@@ -26,13 +26,13 @@ pipeline {
 
                 steps {
                     echo 'Deploying to Development Environment'
-               sshagent(['dev-pcmshoppingcart-app']) {
+               //sshagent(['dev-pcmshoppingcart-app']) {
 
 
-             sh 'ssh -o StrictHostKeyChecking=no '${env.deploy}''
+            // sh 'ssh -o StrictHostKeyChecking=no '${env.deploy}''
              sh "scp -r $WORKSPACE/tpls/* '${env.deploy}':'/usr/bin/'"
 
-            }
+            //}
         }
         }
         }
