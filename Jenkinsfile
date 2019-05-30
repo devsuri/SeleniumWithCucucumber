@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-    stages {
+  /*  stages {
         stage('validate'){
             sstep { 
                 echo 'mvn validate'
@@ -32,4 +32,29 @@ pipeline {
         }
         }
         }
-}
+}*/
+
+stages{
+    stage('Build') {
+        steps{
+             catchError {
+                sh 'mvn clean compile'
+               }
+         }
+         post {
+            success {
+                echo 'Build stage successful'
+            }
+            failure {
+                echo 'Compile stage failed'
+                error('Build is aborted due to failure of build stage')
+
+             }
+    }
+   }
+  stage ('Production'){
+        steps {
+                echo 'Deploying to Development Environment'       
+              }
+        }
+   }
