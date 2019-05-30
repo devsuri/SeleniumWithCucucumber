@@ -3,17 +3,25 @@ pipeline {
     
     stages {
         stage('validate'){
-            steps { 
+            try { 
                 echo 'mvn validate'
                 sh 'mvn validate'
+                sshagent(['dev-pcmshoppingcart-app'])
+            }
+            finally
+            {
+                echo '[FAILURE] Failed to build'
                 
               
                 
             }}
         stage('compile'){
-            steps {
+            try {
             echo 'mvn compile'
             sh 'mvn clean compile'
+            }
+            finally{
+                echo '[FAILURE] Failed to build'
             }}
         
         stage('DeployToDevelopment') {
