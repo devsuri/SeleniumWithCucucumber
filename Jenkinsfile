@@ -39,6 +39,7 @@ stages{
         steps{
              catchError {
                 sh 'mvn clean compile'
+                 sshagent(['dev-pcmshoppingcart-app'])
                }
          }
          post {
