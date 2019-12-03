@@ -3,13 +3,14 @@ pipeline {
     stages {
         stage('validate'){
             steps { 
-                echo 'mvn validate'
-                sh 'mvn validate'
+                #echo 'mvn validate'
+                #sh 'mvn validate'
+            sh 'mvn -B -DskipTests clean package'
             }}
         stage('compile'){
             steps {
-            echo 'mvn compile'
-            sh 'mvn clean compile'
+            #echo 'mvn compile'
+            #sh 'mvn clean compile'
             }}
         }
 }
