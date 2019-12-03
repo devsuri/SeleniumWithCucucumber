@@ -9,7 +9,7 @@ pipeline {
             }}
         stage('compile'){
             steps {
-            //echo 'mvn compile'
+            echo 'mvn compile'
             //sh 'mvn clean compile'
             }}
         }
