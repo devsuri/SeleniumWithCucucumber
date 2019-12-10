@@ -110,6 +110,7 @@ pipeline {
         stage('Arachni-Dynamic-Scanning') {
 	    steps {
 		  echo 'Arachni-Dynamic-Scanning'
+		  sh 'mkdir $WORKSPACE/arachni_report'
                   sh 'rm -rf /var/jenkins_home/workspace/arachni_report/*'
                   sh 'rm -rf $WORKSPACE/arachni_report/*'
 	          //sh '/arachni-1.4-0.5.10/bin/arachni http://35.171.80.62:8080 '
