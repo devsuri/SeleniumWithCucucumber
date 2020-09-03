@@ -1,18 +1,3 @@
-#pipeline {
-#    agent any
-    
-#stages{
-#    stage('Build') {
-#        steps{
- #            
-#                sh 'mvn clean compile'
-#                 
-#               }
-#         }
-#         
-#        }
-#}
-
 pipeline {
   agent any
   stages {
@@ -22,6 +7,7 @@ pipeline {
           steps {
             echo 'Running from Jenkins file'
             sh(script: 'mvn compile', label: 'maven')
+              #sh 'mvn clean compile'
           }
         }
 
