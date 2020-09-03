@@ -7,7 +7,7 @@ pipeline {
           steps {
             echo 'Running from Jenkins file'
             sh(script: 'mvn compile', label: 'maven')
-              #sh 'mvn clean compile'
+              //sh 'mvn clean compile'
           }
         }
 
